@@ -67,10 +67,11 @@ public class ZombieSpawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
+        yield return new WaitUntil(() => GameSystem.Instance.State != GameState.Paused);
         while(true)
         {
-            yield return new WaitUntil(() => GameSystem.Instance.State != GameState.Paused);
             yield return new WaitForSeconds(spawnRate);
+            yield return new WaitUntil(() => GameSystem.Instance.State != GameState.Paused);
             //Instantiate(s)
 
             if (_basicZeds != 0)
