@@ -16,6 +16,8 @@ public class GameSystem : MonoBehaviour
 
     public GameState State { get; set; }
 
+    public bool gameWon = false;
+
     public Text goldText, scoreText, livesText, endText, remainingZombiesText;
 
     public Button playButton, pauseButton;
