@@ -14,7 +14,7 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance;
 
-    public GameState State { get; set; }
+    public GameState State { get; set; } = GameState.Paused;
 
     public bool gameWon = false;
 
@@ -23,6 +23,18 @@ public class GameSystem : MonoBehaviour
     public Button playButton, pauseButton;
 
     private int _zombiesRemaining;
+
+    /// <summary> The total number of remaining zombies this wave. </summary>
+    [HideInInspector] public int ZombiesRemaining
+    {
+        get { return _zombiesRemaining; }
+
+        set
+        {
+            _zombiesRemaining = value;
+            remainingZombiesText.text = "Remaining Zombies: " + _zombiesRemaining;
+        }
+    }
 
     public List<Button> shopButtons = new List<Button>();
 
@@ -67,18 +79,6 @@ public class GameSystem : MonoBehaviour
         if (lives <= 0) Lose();
     }
 
-    public void SetZombieAmount(int zombies)
-    {
-        _zombiesRemaining = zombies;
-        remainingZombiesText.text = "Zombies remaining: " + _zombiesRemaining;
-    }
-
-    public void DecrementZombiesRemaining()
-    {
-        _zombiesRemaining--;
-        remainingZombiesText.text = "Zombies remaining: " + _zombiesRemaining;
-    }
-
     private void StartUp()
     {
         if (goldText == null) goldText = GameObject.Find("Gold Text").GetComponent<Text>();
@@ -88,6 +88,8 @@ public class GameSystem : MonoBehaviour
 
         UpdateScore(0);
         UpdateLives(3);
+
+        PauseGame();
     }
 
     public void PlayGame()

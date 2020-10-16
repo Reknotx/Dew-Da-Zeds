@@ -15,8 +15,6 @@ public class ZombieSpawner : MonoBehaviour
 
     public List<Enemy> spawnables = new List<Enemy>();
 
-    [HideInInspector] public int EnemiesAlive;
-
     public GameObject BasicZed;
     [HideInInspector] public GameObject FastZed;
     [HideInInspector] public GameObject BigZed;
@@ -34,15 +32,17 @@ public class ZombieSpawner : MonoBehaviour
 
     private List<WaveInfo> waves = new List<WaveInfo>();
 
+    /// <summary> The info for the zombies spawned during the fist wave. </summary>
     public WaveInfo _waveOne;
 
+    /// <summary> The info for the zombies spawned during the second wave. </summary>
     public WaveInfo _waveTwo;
 
+    /// <summary> The info for the zombies spawned during the third wave. </summary>
     public WaveInfo _waveThree;
 
+    /// <summary> The info for the current wave. </summary>
     private WaveInfo currWaveInfo;
-
-    private int TotalEnemies;
 
     public WayPoint spawningPoint;
 
@@ -86,15 +86,13 @@ public class ZombieSpawner : MonoBehaviour
                 _bigZeds--;
             }
 
-
-
             if (_basicZeds == 0)
             {
                 break;
             }
         }
 
-        yield return new WaitUntil(() => EnemiesAlive != 0);
+        yield return new WaitUntil(() => GameSystem.Instance.ZombiesRemaining == 0);
 
         yield return new WaitUntil(() => GameSystem.Instance.State != GameState.Paused);
 
@@ -105,6 +103,9 @@ public class ZombieSpawner : MonoBehaviour
         NewWave();
     }
 
+    /// <summary>
+    /// Sets up the spawning information for the next wave.
+    /// </summary>
     void NewWave()
     {
 
@@ -123,6 +124,10 @@ public class ZombieSpawner : MonoBehaviour
         _bigZeds = currWaveInfo.bigZeds;
 
         _fastZeds = currWaveInfo.fastZeds;
+
+        int totalZeds = _basicZeds + _bigZeds + _fastZeds;
+
+        GameSystem.Instance.ZombiesRemaining = totalZeds;
 
         StartCoroutine(Spawn());
     }
