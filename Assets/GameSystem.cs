@@ -14,15 +14,27 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance;
 
-    public GameState State { get; set; }
+    public GameState State { get; set; } = GameState.Paused;
 
     public bool gameWon = false;
 
     public Text goldText, scoreText, livesText, endText, remainingZombiesText;
 
-    public Button playButton, pauseButton;
+    public Button playButton, pauseButton, normalSpeedButton, fastSpeedButton;
 
     private int _zombiesRemaining;
+
+    /// <summary> The total number of remaining zombies this wave. </summary>
+    [HideInInspector] public int ZombiesRemaining
+    {
+        get { return _zombiesRemaining; }
+
+        set
+        {
+            _zombiesRemaining = value;
+            remainingZombiesText.text = "Remaining Zombies: " + _zombiesRemaining;
+        }
+    }
 
     public List<Button> shopButtons = new List<Button>();
 
@@ -67,18 +79,6 @@ public class GameSystem : MonoBehaviour
         if (lives <= 0) Lose();
     }
 
-    public void SetZombieAmount(int zombies)
-    {
-        _zombiesRemaining = zombies;
-        remainingZombiesText.text = "Zombies remaining: " + _zombiesRemaining;
-    }
-
-    public void DecrementZombiesRemaining()
-    {
-        _zombiesRemaining--;
-        remainingZombiesText.text = "Zombies remaining: " + _zombiesRemaining;
-    }
-
     private void StartUp()
     {
         if (goldText == null) goldText = GameObject.Find("Gold Text").GetComponent<Text>();
@@ -88,6 +88,8 @@ public class GameSystem : MonoBehaviour
 
         UpdateScore(0);
         UpdateLives(3);
+
+        PauseGame();
     }
 
     public void PlayGame()
@@ -110,6 +112,8 @@ public class GameSystem : MonoBehaviour
     public void NormalSpeed()
     {
         Time.timeScale = 1f;
+        normalSpeedButton.gameObject.SetActive(true);
+        fastSpeedButton.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -118,6 +122,8 @@ public class GameSystem : MonoBehaviour
     public void FastSpeed()
     {
         Time.timeScale = 2f;
+        normalSpeedButton.gameObject.SetActive(false);
+        fastSpeedButton.gameObject.SetActive(true);
     }
 
     /// <summary> Displays the lose game text. </summary>
