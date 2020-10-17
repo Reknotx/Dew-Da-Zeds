@@ -94,9 +94,11 @@ public class ZombieSpawner : MonoBehaviour
 
         yield return new WaitUntil(() => GameSystem.Instance.ZombiesRemaining == 0);
 
+        yield return new WaitForFixedUpdate();
+
         yield return new WaitUntil(() => GameSystem.Instance.State != GameState.Paused);
 
-        yield return new WaitForSeconds(5f);
+        //yield return new WaitForSeconds(5f);
 
         currentWave++;
 
