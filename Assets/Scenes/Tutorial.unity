@@ -9416,7 +9416,6 @@ MonoBehaviour:
   spawnRate: 1
   spawnables:
   - {fileID: 8700105118924010218, guid: 4b7d6adc44ce5984fa9c68292c61776a, type: 3}
-  EnemiesAlive: 0
   BasicZed: {fileID: 8700105118924010219, guid: 4b7d6adc44ce5984fa9c68292c61776a,
     type: 3}
   FastZed: {fileID: 0}
