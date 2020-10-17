@@ -20,7 +20,7 @@ public class GameSystem : MonoBehaviour
 
     public Text goldText, scoreText, livesText, endText, remainingZombiesText;
 
-    public Button playButton, pauseButton;
+    public Button playButton, pauseButton, normalSpeedButton, fastSpeedButton;
 
     private int _zombiesRemaining;
 
@@ -112,6 +112,8 @@ public class GameSystem : MonoBehaviour
     public void NormalSpeed()
     {
         Time.timeScale = 1f;
+        normalSpeedButton.gameObject.SetActive(true);
+        fastSpeedButton.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -120,6 +122,8 @@ public class GameSystem : MonoBehaviour
     public void FastSpeed()
     {
         Time.timeScale = 2f;
+        normalSpeedButton.gameObject.SetActive(false);
+        fastSpeedButton.gameObject.SetActive(true);
     }
 
     /// <summary> Displays the lose game text. </summary>
