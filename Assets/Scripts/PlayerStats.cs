@@ -18,12 +18,18 @@ public class PlayerStats : MonoBehaviour
             GameSystem.Instance.UpdateGold(_gold);
         }
     }
+
+    /// <summary>
+    /// Public property that holds the number of lives the player has remaining.
+    /// Automatically updates the UI in the game system.
+    /// </summary>
     public int Lives
     {
         get { return _lives; }
         set
         {
             _lives = value;
+            _lives = Mathf.Clamp(_lives, 0, 3);
 
             GameSystem.Instance.UpdateLives(_lives);
         }

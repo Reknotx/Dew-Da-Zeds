@@ -20,6 +20,8 @@ public class Turret : MonoBehaviour
     /// <summary> The list representing how many enemies are within firing range. </summary>
     public List<Enemy> enemiesInRange = new List<Enemy>();
 
+    public GameObject TurretSpriteHolder;
+
     private int _totalCost;
 
     [Header("Turret stats and upgrades.")]

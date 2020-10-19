@@ -35,6 +35,7 @@ public class Firing : Turret
         }
     }
 
+    /// <summary> Damages the currently targetted enemy. </summary>
     public void DamageEnemy()
     {
         if (enemiesInRange.Count <= 0) return;
