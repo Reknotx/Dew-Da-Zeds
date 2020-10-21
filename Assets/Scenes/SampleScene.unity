@@ -433,37 +433,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nacho Turret
       objectReference: {fileID: 0}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 42ac296d85b8cc24e84a94edb59167ab,
-        type: 3}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 544836477359511033, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 544836477359511038, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -787,14 +756,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1239318479, guid: f5a2724b3c4720046a2a848824aafee6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -60.629883
-      objectReference: {fileID: 0}
-    - target: {fileID: 1747965355, guid: f5a2724b3c4720046a2a848824aafee6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -60.629883
-      objectReference: {fileID: 0}
     - target: {fileID: 9195724310520326460, guid: f5a2724b3c4720046a2a848824aafee6,
         type: 3}
       propertyPath: m_LocalPosition.x

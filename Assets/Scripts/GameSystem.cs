@@ -18,9 +18,13 @@ public class GameSystem : MonoBehaviour
 
     public bool gameWon = false;
 
-    public Text goldText, scoreText, livesText, endText, remainingZombiesText;
+    public Text goldText, scoreText, livesText, remainingZombiesText;
 
     public Button playButton, pauseButton, normalSpeedButton, fastSpeedButton;
+
+    /// <summary> To be displayed when player wins/loses the game. </summary>
+    public Image winnerBanner, loserBanner;
+
 
     private int _zombiesRemaining;
 
@@ -33,6 +37,8 @@ public class GameSystem : MonoBehaviour
         {
             _zombiesRemaining = value;
             remainingZombiesText.text = "Remaining Zombies: " + _zombiesRemaining;
+
+            if (_zombiesRemaining == 0) PauseGame();
         }
     }
 
@@ -79,6 +85,7 @@ public class GameSystem : MonoBehaviour
         if (lives <= 0) Lose();
     }
 
+    /// <summary> Handles the initial start up and set up process of the game. </summary>
     private void StartUp()
     {
         if (goldText == null) goldText = GameObject.Find("Gold Text").GetComponent<Text>();
@@ -92,6 +99,7 @@ public class GameSystem : MonoBehaviour
         PauseGame();
     }
 
+    /// <summary> Resumes the game play. </summary>
     public void PlayGame()
     {
         State = GameState.Play;
@@ -99,6 +107,7 @@ public class GameSystem : MonoBehaviour
         pauseButton.gameObject.SetActive(true);
     }
 
+    /// <summary> Pauses the game play. </summary>
     public void PauseGame()
     {
         State = GameState.Paused;
@@ -126,20 +135,16 @@ public class GameSystem : MonoBehaviour
         fastSpeedButton.gameObject.SetActive(true);
     }
 
-    /// <summary> Displays the lose game text. </summary>
+    /// <summary> Displays the loser banner. </summary>
     public void Lose()
     {
-        endText.text = "You Lose!";
-
-        endText.gameObject.SetActive(true);
+        loserBanner.gameObject.SetActive(true);
     }
 
-    /// <summary> Displays the win game text. </summary>
+    /// <summary> Displays the winner banner. </summary>
     public void Win()
     {
-        endText.text = "You Win!";
-
-        endText.gameObject.SetActive(true);
+        winnerBanner.gameObject.SetActive(true);
     }
 
     private List<Timer> timerList;

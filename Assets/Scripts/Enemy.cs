@@ -39,6 +39,9 @@ public class Enemy : MonoBehaviour
         Power = stats.damage;
         _goldDropOnDeath = stats.goldOnDeath;
         _scoreOnDeath = stats.scoreOnDeath;
+
+        if (stats.enemySprite != null)
+            GetComponent<SpriteRenderer>().sprite = stats.enemySprite;
     }
 
 

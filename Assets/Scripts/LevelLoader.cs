@@ -21,6 +21,13 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    public void LoadSpecificLevel(int index)
+    {
+        Debug.Log("Trying to load in level " + index);
+        loading = true;
+        StartCoroutine(LoadLevel(index));
+    }
+
     public void LoadNextLevel()
     {
         Debug.Log("In Load next Level");
@@ -44,6 +51,11 @@ public class LevelLoader : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void QuitApp()
+    {
+        Application.Quit();
     }
 
 }
