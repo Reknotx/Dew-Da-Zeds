@@ -1010,8 +1010,8 @@ MonoBehaviour:
   pauseButton: {fileID: 5994572137494245117}
   normalSpeedButton: {fileID: 5994572136699556521}
   fastSpeedButton: {fileID: 5994572137256442069}
-  winnerBanner: {fileID: 0}
-  loserBanner: {fileID: 0}
+  winnerBanner: {fileID: 8236031048103272341}
+  loserBanner: {fileID: 226488862717596976}
   shopButtons: []
 --- !u!1 &4732154095903085026
 GameObject:
@@ -1696,7 +1696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4732154096520072491}
   m_Layer: 0
-  m_Name: Map (1)
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4038,7 +4038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8896282463547815402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4056,7 +4056,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6884984139454494024
 CanvasRenderer:
@@ -5118,7 +5118,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5199707901347845064
 CanvasRenderer:

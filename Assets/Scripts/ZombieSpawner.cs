@@ -61,8 +61,8 @@ public class ZombieSpawner : MonoBehaviour
         waves.Add(_waveTwo);
         waves.Add(_waveThree);
 
-
-        NewWave();
+        StartCoroutine(WaitUntilGameSystemSet());
+        //NewWave();
     }
 
     IEnumerator Spawn()
@@ -132,5 +132,12 @@ public class ZombieSpawner : MonoBehaviour
         GameSystem.Instance.ZombiesRemaining = totalZeds;
 
         StartCoroutine(Spawn());
+    }
+
+    IEnumerator WaitUntilGameSystemSet()
+    {
+        yield return new WaitUntil(() => GameSystem.Instance != null);
+
+        NewWave();
     }
 }
