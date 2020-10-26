@@ -48,7 +48,7 @@ public class Tutorial : MonoBehaviour
 #endif
 
         ///Run this block if we are in the unity editor.
-#if (UNITY_EDITOR)
+#if (UNITY_EDITOR || U)
         if (Input.GetMouseButtonDown(0))
         {
             if (_counter < tutorialBoxes.Count)
