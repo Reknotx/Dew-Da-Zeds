@@ -16,7 +16,7 @@ public class GameSystem : MonoBehaviour
 
     public GameState State { get; set; } = GameState.Paused;
 
-    public bool gameWon = false;
+    [HideInInspector] public bool gameWon = false;
 
     public Text goldText, scoreText, livesText, remainingZombiesText;
 
@@ -44,13 +44,18 @@ public class GameSystem : MonoBehaviour
 
     public List<Button> shopButtons = new List<Button>();
 
-    private void Start()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(Instance.gameObject);
         }
         Instance = this;
+        
+    }
+
+    private void Start()
+    {
 
         StartUp();
         
