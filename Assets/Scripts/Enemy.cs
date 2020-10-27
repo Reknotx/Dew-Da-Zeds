@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
 
         if (Vector2.Distance(transform.position, dest.transform.position) <= 0.01f)
         {
-            if (dest.name == "End Point")
+            if (dest.name == "End Point" || dest.Link.Count == 0)
             {
                 atEnd = true;
                 DealDamageToPlayer();
