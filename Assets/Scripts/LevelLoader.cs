@@ -33,6 +33,7 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    #region Level Load Functions
     public void LoadSpecificLevel(int index)
     {
         Debug.Log("Trying to load in level " + index);
@@ -45,6 +46,13 @@ public class LevelLoader : MonoBehaviour
         Debug.Log("In Load next Level");
         loading = true;
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public void ReloadCurrentLevel()
+    {
+        Debug.Log("Reloading current level");
+        loading = true;
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -64,6 +72,7 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
+    #endregion
 
     public void QuitApp()
     {
