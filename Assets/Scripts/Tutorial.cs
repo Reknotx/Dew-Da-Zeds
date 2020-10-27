@@ -23,15 +23,17 @@ public class Tutorial : MonoBehaviour
         }
 
         tutorialBoxes[0].SetActive(true);
+        _activeBox = tutorialBoxes[0];
         _counter++;
     }
 
 
     private void Update()
     {
-        ///Run this block if we are testing on our phones.
-#if (UNITY_ANDROID)
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+
+        ///Run this block if we are in the unity editor.
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
         {
             if (_counter < tutorialBoxes.Count)
             {
@@ -45,11 +47,9 @@ public class Tutorial : MonoBehaviour
                 LevelLoader.Instance.LoadSpecificLevel(0);
             }
         }
-#endif
-
-        ///Run this block if we are in the unity editor.
-#if (UNITY_EDITOR || U)
-        if (Input.GetMouseButtonDown(0))
+#else
+        ///Run this block if we are testing on our phones.
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (_counter < tutorialBoxes.Count)
             {
