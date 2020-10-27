@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
     /// <summary> To be displayed when player wins/loses the game. </summary>
     public Image winnerBanner, loserBanner;
 
+    public GameObject endWinCanvas, endLoseCanvas;
 
     private int _zombiesRemaining;
 
