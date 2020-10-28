@@ -1013,6 +1013,8 @@ MonoBehaviour:
   fastSpeedButton: {fileID: 5994572137256442069}
   winnerBanner: {fileID: 8236031048103272341}
   loserBanner: {fileID: 226488862717596976}
+  endWinCanvas: {fileID: 0}
+  endLoseCanvas: {fileID: 0}
   shopButtons: []
 --- !u!1 &4732154095903085026
 GameObject:
@@ -5132,7 +5134,7 @@ MonoBehaviour:
   focusOfBuy: {fileID: 0}
   placing: 0
   shopButtons:
-  - {fileID: 0}
+  - {fileID: 3219292064324754121}
 --- !u!1 &8683158098599002132
 GameObject:
   m_ObjectHideFlags: 0

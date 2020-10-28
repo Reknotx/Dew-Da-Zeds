@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSpawner : MonoBehaviour
+public class ZombieSpawner : WayPoint
 {
 
     [Range(1f, 4f)]
@@ -44,7 +44,7 @@ public class ZombieSpawner : MonoBehaviour
     /// <summary> The info for the current wave. </summary>
     private WaveInfo currWaveInfo;
 
-    public WayPoint spawningPoint;
+    //public WayPoint spawningPoint;
 
     private void Start()
     {
@@ -77,7 +77,7 @@ public class ZombieSpawner : MonoBehaviour
             if (_basicZeds != 0)
             {
                 GameObject zomb = Instantiate(BasicZed, transform.position, Quaternion.identity) as GameObject;
-                zomb.GetComponent<Enemy>().dest = spawningPoint;
+                zomb.GetComponent<Enemy>().dest = Link[0];
                 _basicZeds--;
             }
             else if (_bigZeds != 0)
