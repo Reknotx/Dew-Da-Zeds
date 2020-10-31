@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Freeze : MonoBehaviour
+public class Freeze : Turret
 {
     // Start is called before the first frame update
     void Start()
