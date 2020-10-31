@@ -79,6 +79,18 @@ public class Turret : MonoBehaviour
         upgradeTree = new UpgradeTree(temp);
     }
 
+    protected virtual void Update()
+    {
+        UpdateUpgrade();
+
+        if (GameSystem.Instance.State == GameState.Paused) return;
+
+        if (enemiesInRange.Count > 0 && enemiesInRange[0] != null)
+        {
+            timer.Tick(Time.deltaTime);
+        }
+    }
+
     /// <summary> Updates the upgrade button to represent the current cost of buying. </summary>
     public void UpdateUpgrade()
     {

@@ -17,9 +17,10 @@ public class Firing : Turret
         timer = new Timer(fireRate, DamageEnemy);
     }
 
-    private void Update()
+    protected override void Update()
     {
-        UpdateUpgrade();
+        //UpdateUpgrade();
+        base.Update();
         if (GameSystem.Instance.State == GameState.Paused) return;
 
         if (enemiesInRange.Count > 0 && enemiesInRange[0] != null)
@@ -29,7 +30,7 @@ public class Firing : Turret
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             TurretSpriteHolder.transform.parent.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-            timer.Tick(Time.deltaTime);
+            //timer.Tick(Time.deltaTime);
         }
     }
 

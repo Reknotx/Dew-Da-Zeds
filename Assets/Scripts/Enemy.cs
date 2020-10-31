@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
 
     public EnemyStats stats;
 
-    public WayPoint dest;
+    [HideInInspector] public WayPoint dest;
 
-    public bool atEnd = false;
+    [HideInInspector] public bool atEnd = false;
 
     private int _goldDropOnDeath;
 
@@ -23,6 +23,29 @@ public class Enemy : MonoBehaviour
 
     public float Speed { get; set; }
     public int Power { get; set; }
+
+    private bool _isFrozen = false;
+    public bool IsFrozen
+    {
+        get
+        {
+            return _isFrozen;
+        }
+        set
+        {
+            if (value == true)
+            {
+                //Speed = 0f;
+                _isFrozen = true;
+                StartCoroutine(Frozen());
+            }
+            else
+            {
+                //Speed = stats.speed;
+                _isFrozen = false;
+            }
+        }
+    }
 
     //public Transform destination;
 
@@ -69,6 +92,8 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
+        if (IsFrozen) return;
+
         transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, Speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, dest.transform.position) <= 0.01f)
@@ -88,5 +113,13 @@ public class Enemy : MonoBehaviour
     void DealDamageToPlayer()
     {
         PlayerStats.Instance.Lives -= Power;
+    }
+
+    IEnumerator Frozen()
+    {
+        yield return new WaitForSeconds(2f);
+        yield return new WaitForFixedUpdate();
+
+        IsFrozen = false;
     }
 }
