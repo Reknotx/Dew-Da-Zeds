@@ -6,8 +6,20 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
+    public static LevelLoader Instance;
 
     private bool loading = false;
+
+    private void Start()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject);
+        }
+
+        Instance = this;
+    }
+
 
     // Update is called once per frame
     void Update()

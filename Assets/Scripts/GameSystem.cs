@@ -16,7 +16,7 @@ public class GameSystem : MonoBehaviour
 
     public GameState State { get; set; } = GameState.Paused;
 
-    public bool gameWon = false;
+    [HideInInspector] public bool gameWon = false;
 
     public Text goldText, scoreText, livesText, remainingZombiesText;
 
@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
     /// <summary> To be displayed when player wins/loses the game. </summary>
     public Image winnerBanner, loserBanner;
 
+    public GameObject endWinCanvas, endLoseCanvas;
 
     private int _zombiesRemaining;
 
@@ -44,18 +45,24 @@ public class GameSystem : MonoBehaviour
 
     public List<Button> shopButtons = new List<Button>();
 
-    private void Start()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(Instance.gameObject);
         }
         Instance = this;
+        
+    }
+
+    private void Start()
+    {
 
         StartUp();
         
     }
 
+    #region UI Updaters
     /// <summary>
     /// Updates the text component representing our current gold.
     /// </summary>
@@ -84,13 +91,17 @@ public class GameSystem : MonoBehaviour
 
         if (lives <= 0) Lose();
     }
+    #endregion
 
     /// <summary> Handles the initial start up and set up process of the game. </summary>
     private void StartUp()
     {
         if (goldText == null) goldText = GameObject.Find("Gold Text").GetComponent<Text>();
         if (scoreText == null) scoreText = GameObject.Find("Score Text").GetComponent<Text>();
+        if (livesText == null) livesText = GameObject.Find("Lives Text").GetComponent<Text>();
 
+        winnerBanner.gameObject.SetActive(false);
+        loserBanner.gameObject.SetActive(false);
         UpdateGold(30);
 
         UpdateScore(0);
@@ -99,6 +110,7 @@ public class GameSystem : MonoBehaviour
         PauseGame();
     }
 
+    #region Game Speed Buttons
     /// <summary> Resumes the game play. </summary>
     public void PlayGame()
     {
@@ -134,7 +146,9 @@ public class GameSystem : MonoBehaviour
         normalSpeedButton.gameObject.SetActive(false);
         fastSpeedButton.gameObject.SetActive(true);
     }
+    #endregion
 
+    #region Win/Lose Functions
     /// <summary> Displays the loser banner. </summary>
     public void Lose()
     {
@@ -146,6 +160,7 @@ public class GameSystem : MonoBehaviour
     {
         winnerBanner.gameObject.SetActive(true);
     }
+    #endregion
 
     private List<Timer> timerList;
 
