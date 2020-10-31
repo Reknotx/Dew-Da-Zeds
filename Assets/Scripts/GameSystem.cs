@@ -101,11 +101,13 @@ public class GameSystem : MonoBehaviour
         if (livesText == null) livesText = GameObject.Find("Lives Text").GetComponent<Text>();
 
         winnerBanner.gameObject.SetActive(false);
+        endWinCanvas.gameObject.SetActive(false);
         loserBanner.gameObject.SetActive(false);
-        UpdateGold(30);
+        endLoseCanvas.gameObject.SetActive(false);
+        UpdateGold(PlayerStats.Instance.Gold);
 
         UpdateScore(0);
-        UpdateLives(3);
+        UpdateLives(PlayerStats.Instance.Lives);
 
         PauseGame();
     }
@@ -153,12 +155,14 @@ public class GameSystem : MonoBehaviour
     public void Lose()
     {
         loserBanner.gameObject.SetActive(true);
+        endLoseCanvas.SetActive(true);
     }
 
     /// <summary> Displays the winner banner. </summary>
     public void Win()
     {
         winnerBanner.gameObject.SetActive(true);
+        endWinCanvas.SetActive(true);
     }
     #endregion
 
