@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour
 
     private bool loading = false;
 
-    private void Start()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -38,6 +38,13 @@ public class LevelLoader : MonoBehaviour
         Debug.Log("Trying to load in level " + index);
         loading = true;
         StartCoroutine(LoadLevel(index));
+    }
+
+    public void ReloadCurrentLevel()
+    {
+        Debug.Log("REstarting level.");
+        loading = true;
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadNextLevel()

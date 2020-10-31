@@ -87,6 +87,6 @@ public class Enemy : MonoBehaviour
 
     void DealDamageToPlayer()
     {
-        PlayerStats.Instance.Lives -= stats.damage;
+        PlayerStats.Instance.Lives -= Power;
     }
 }
