@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Turret : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class Turret : MonoBehaviour
     private TurretStats currentStats;
 
     private UpgradeTree upgradeTree;
+
+    protected Timer timer;
+
 
     private void Awake()
     {
@@ -116,6 +120,29 @@ public class Turret : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        if (baseStats == null) return;
+
+        Gizmos.color = Color.red;
+
+        //Gizmos.DrawWireSphere(transform.position, radius);
+
+        CircleCollider2D c2d = GetComponent<CircleCollider2D>();
+        if (c2d != null)
+        {
+            float newRadius = baseStats.range;
+
+            c2d.radius = newRadius;
+            Handles.color = new Color(0, 1, 0, .1f);
+            Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f);
+            Handles.DrawSolidDisc(center, Vector3.forward, newRadius);
+        }
+    }
+#endif
+
+    #region Upgrades and Selling
     /// <summary> Upgrades the turret to the next level. </summary>
     public void Upgrade()
     {
@@ -286,4 +313,5 @@ public class Turret : MonoBehaviour
         }
 
     }
+    #endregion
 }

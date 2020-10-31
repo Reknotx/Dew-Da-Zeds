@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Firing : Turret
 {
@@ -10,7 +9,6 @@ public class Firing : Turret
     /// <summary>
     /// The timer that executes the firing function.
     /// </summary>
-    private Timer timer;
     //private float range = 2f;
 
     protected override void Start()
@@ -55,23 +53,5 @@ public class Firing : Turret
 
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    if (baseStats == null) return;
-
-    //    Gizmos.color = Color.red;
-
-    //    //Gizmos.DrawWireSphere(transform.position, radius);
-
-    //    CircleCollider2D c2d = GetComponent<CircleCollider2D>();
-    //    if (c2d != null)
-    //    {
-    //        float newRadius = baseStats.range;
-
-    //        c2d.radius = newRadius;
-    //        Handles.color = new Color(0, 1, 0, .1f);
-    //        Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f);
-    //        Handles.DrawSolidDisc(center, Vector3.forward, newRadius);
-    //    }
-    //}
+    
 }
