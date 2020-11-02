@@ -1974,7 +1974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5934,9 +5934,9 @@ MonoBehaviour:
     type: 3}
   FastZed: {fileID: 0}
   BigZed: {fileID: 0}
-  _waveOne: {fileID: 11400000, guid: dfcc1278b48db6b4fa1ffbc0cadcae06, type: 2}
-  _waveTwo: {fileID: 11400000, guid: edab07356319aa8419a03519bef9ddae, type: 2}
-  _waveThree: {fileID: 11400000, guid: 165a8930243f31d49874d61daaf1e5a2, type: 2}
+  _waveOne: {fileID: 11400000, guid: cfc2d1534162b494bbaf7586ba5a70c0, type: 2}
+  _waveTwo: {fileID: 11400000, guid: 5b6e817d6a370fa4d87127d267ecc84e, type: 2}
+  _waveThree: {fileID: 11400000, guid: ae4f02e915251264aa008cbff95064ff, type: 2}
 --- !u!1 &1677560562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7858,7 +7858,7 @@ PrefabInstance:
     - target: {fileID: 3219292064432606779, guid: 17ec1c66334cff943bcb79f1a91a975b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ec1c66334cff943bcb79f1a91a975b, type: 3}
