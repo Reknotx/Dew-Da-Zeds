@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turretOne: {fileID: 544836477359511032, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
     type: 3}
-  _turretTwo: {fileID: 0}
+  _turretTwo: {fileID: 1982329141403725369, guid: 5dcb93f1feace0b46bdc2355da661c39,
+    type: 3}
   _turretThree: {fileID: 0}

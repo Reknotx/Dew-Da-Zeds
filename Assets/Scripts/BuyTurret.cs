@@ -10,7 +10,7 @@ public class BuyTurret : MonoBehaviour
     public GameObject focusOfBuy;
 
 
-    public bool placing = false;
+    [HideInInspector] public bool placing = false;
 
     public List<Button> shopButtons = new List<Button>();
 
