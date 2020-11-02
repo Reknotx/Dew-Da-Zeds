@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b220b40567bb8f45ad767729fee3d23, type: 3}
-  m_Name: Frostbite Level 0
+  m_Name: Frostbite Level 2
   m_EditorClassIdentifier: 
   fireRate: 0
   damage: 0

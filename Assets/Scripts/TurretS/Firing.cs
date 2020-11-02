@@ -28,7 +28,7 @@ public class Firing : Turret
             //transform.parent.LookAt(enemiesInRange[0].transform.position);
             var dir = enemiesInRange[0].transform.position - transform.parent.position;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            TurretSpriteHolder.transform.parent.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            TurretSpriteHolder.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
             //timer.Tick(Time.deltaTime);
         }

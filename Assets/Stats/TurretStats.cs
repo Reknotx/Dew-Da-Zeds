@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Turret Stats", menuName = "Create Turret Stats container")]
 public class TurretStats : ScriptableObject
 {
     /// <summary> The rate at which this turret fires. </summary>
