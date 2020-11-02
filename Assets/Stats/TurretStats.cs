@@ -14,8 +14,10 @@ public class TurretStats : ScriptableObject
     [Range(0.5f, 4f)]
     public float range;
 
-    public Sprite turretSprite;
-
     /// <summary> Represents what level the turret is. </summary>
     public int Level;
+
+    public Sprite turretSprite;
+    public Sprite baseSprite;
+
 }

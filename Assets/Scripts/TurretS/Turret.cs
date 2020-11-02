@@ -164,6 +164,8 @@ public class Turret : MonoBehaviour
         fireRate = temp.fireRate;
         PlayerStats.Instance.Gold -= temp.cost;
         _totalCost += temp.cost;
+        TurretSpriteHolder.GetComponent<SpriteRenderer>().sprite = temp.turretSprite;
+        TurretSpriteHolder.GetComponentInChildren<SpriteRenderer>().sprite = temp.baseSprite;
     }
 
     /// <summary> Downgrades the turret to the previous level. </summary>
@@ -174,6 +176,8 @@ public class Turret : MonoBehaviour
         damage = temp.damage;
         fireRate = temp.fireRate;
         //PlayerStats.Instance.Gold += temp.sellCost;
+        TurretSpriteHolder.GetComponent<SpriteRenderer>().sprite = temp.turretSprite;
+        TurretSpriteHolder.GetComponentInChildren<SpriteRenderer>().sprite = temp.baseSprite;
     }
 
     /// <summary> Sells the turret, refunding the player their gold. </summary>

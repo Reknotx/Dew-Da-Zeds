@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b220b40567bb8f45ad767729fee3d23, type: 3}
   m_Name: Frostbite Level 0
   m_EditorClassIdentifier: 
-  fireRate: 0
+  fireRate: 4
   damage: 0
-  cost: 0
-  range: 0
-  turretSprite: {fileID: 0}
+  cost: 15
+  range: 2
   Level: 0
-  freeezeDuration: 0
-  numZombiesToFreeze: 0
+  turretSprite: {fileID: 21300000, guid: d0a433fc034f64442905d1e602fbd81d, type: 3}
+  baseSprite: {fileID: 21300000, guid: 725cf4b5edd26734da8c4c28524a5dd3, type: 3}
+  freeezeDuration: 2
+  numZombiesToFreeze: 2

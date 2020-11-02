@@ -16,5 +16,6 @@ MonoBehaviour:
   damage: 9
   cost: 100
   range: 2.04
-  turretSprite: {fileID: 0}
   Level: 3
+  turretSprite: {fileID: 21300000, guid: 42ac296d85b8cc24e84a94edb59167ab, type: 3}
+  baseSprite: {fileID: 21300000, guid: 4f051be9329b5d741a5595dbd24e8570, type: 3}

@@ -13,4 +13,5 @@ public class FrostbiteStats : TurretStats
     [Header("The number of zombies frozen on turret firing.")]
     /// <summary> The number of zombies that will be frozen at one time. </summary>
     public int numZombiesToFreeze;
+
 }
