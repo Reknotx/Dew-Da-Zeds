@@ -38,14 +38,30 @@ public class BuyTurret : MonoBehaviour
             //Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             //focusOfBuy.transform.position = new Vector3(pos.x, pos.y, 0f);
+            RaycastHit2D hit2D = Physics2D.BoxCast(Input.GetTouch(0).position, Vector2.one, 0f, Vector2.zero, 0f);
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (hit2D == true)
             {
-
-                placing = false;
-                focusOfBuy.GetComponentInChildren<Firing>().enabled = true;
-                focusOfBuy = null;
+                if (hit2D.collider.gameObject.layer == (1 << 9))
+                {
+                    print("Hit the path");
+                    focusOfBuy.SetActive(false);
+                    return;
+                }
             }
+            else
+            {
+                focusOfBuy.SetActive(true);
+            }
+
+            
+
+            //if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            //{
+            //    placing = false;
+            //    focusOfBuy.GetComponentInChildren<Firing>().enabled = true;
+            //    focusOfBuy = null;
+            //}
             //if (Input.GetMouseButtonDown(0))
             //{
             //    placing = false;
