@@ -16,6 +16,8 @@ public class BuyTurret : MonoBehaviour
 
     public List<Button> shopButtons = new List<Button>();
 
+    public GameObject barrier;
+
     void NewBuy()
     {
         UpdateButtons();
@@ -91,7 +93,7 @@ public class BuyTurret : MonoBehaviour
             Destroy(focusOfBuy.gameObject);
         }
 
-        focusOfBuy = Instantiate(BuyBarrier, Vector3.zero, Quaternion.identity) as GameObject;
+        focusOfBuy = Instantiate(barrier, Vector3.zero, Quaternion.identity) as GameObject;
     }
 
     private void BuyTurrets(GameObject turret)
