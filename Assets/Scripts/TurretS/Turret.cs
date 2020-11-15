@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Turret : MonoBehaviour
 {
@@ -49,6 +50,9 @@ public class Turret : MonoBehaviour
 
     private UpgradeTree upgradeTree;
 
+    protected Timer timer;
+
+
     private void Awake()
     {
         fireRate = baseStats.fireRate;
@@ -73,6 +77,18 @@ public class Turret : MonoBehaviour
         temp.Add(Level3);
 
         upgradeTree = new UpgradeTree(temp);
+    }
+
+    protected virtual void Update()
+    {
+        UpdateUpgrade();
+
+        if (GameSystem.Instance.State == GameState.Paused) return;
+
+        if (enemiesInRange.Count > 0 && enemiesInRange[0] != null)
+        {
+            timer.Tick(Time.deltaTime);
+        }
     }
 
     /// <summary> Updates the upgrade button to represent the current cost of buying. </summary>
@@ -116,6 +132,29 @@ public class Turret : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        if (baseStats == null) return;
+
+        Gizmos.color = Color.red;
+
+        //Gizmos.DrawWireSphere(transform.position, radius);
+
+        CircleCollider2D c2d = GetComponent<CircleCollider2D>();
+        if (c2d != null)
+        {
+            float newRadius = baseStats.range;
+
+            c2d.radius = newRadius;
+            Handles.color = new Color(0, 1, 0, .1f);
+            Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f);
+            Handles.DrawSolidDisc(center, Vector3.forward, newRadius);
+        }
+    }
+#endif
+
+    #region Upgrades and Selling
     /// <summary> Upgrades the turret to the next level. </summary>
     public void Upgrade()
     {
@@ -125,6 +164,8 @@ public class Turret : MonoBehaviour
         fireRate = temp.fireRate;
         PlayerStats.Instance.Gold -= temp.cost;
         _totalCost += temp.cost;
+        TurretSpriteHolder.GetComponent<SpriteRenderer>().sprite = temp.turretSprite;
+        TurretSpriteHolder.GetComponentInChildren<SpriteRenderer>().sprite = temp.baseSprite;
     }
 
     /// <summary> Downgrades the turret to the previous level. </summary>
@@ -135,6 +176,8 @@ public class Turret : MonoBehaviour
         damage = temp.damage;
         fireRate = temp.fireRate;
         //PlayerStats.Instance.Gold += temp.sellCost;
+        TurretSpriteHolder.GetComponent<SpriteRenderer>().sprite = temp.turretSprite;
+        TurretSpriteHolder.GetComponentInChildren<SpriteRenderer>().sprite = temp.baseSprite;
     }
 
     /// <summary> Sells the turret, refunding the player their gold. </summary>
@@ -286,4 +329,5 @@ public class Turret : MonoBehaviour
         }
 
     }
+    #endregion
 }
