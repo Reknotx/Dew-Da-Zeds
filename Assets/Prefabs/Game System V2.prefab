@@ -1907,7 +1907,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7269022112873412095}
-          m_MethodName: BuyTurretOne
+          m_MethodName: BuyTurretTwo
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2148,7 +2148,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2708603070834615386}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7269022112873412095}
+        m_MethodName: PlaceTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5905357407587478697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3561,14 +3572,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3882ed579bb0630468f35a59a7c7b230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretOne: {fileID: 544836477359511032, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
-    type: 3}
   focusOfBuy: {fileID: 0}
-  placeButton: {fileID: 0}
-  cancelButton: {fileID: 0}
+  placeButton: {fileID: 7282033923047468542}
+  cancelButton: {fileID: 3642065523479884416}
   placing: 0
   shopButtons:
   - {fileID: 3219292064324754121}
+  - {fileID: 2324509708429758687}
+  barrier: {fileID: 0}
 --- !u!1 &6263925482025590215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,7 +3882,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6150750930464358528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7269022112873412095}
+        m_MethodName: CancelInvoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8683158098599002132
 GameObject:
   m_ObjectHideFlags: 0
