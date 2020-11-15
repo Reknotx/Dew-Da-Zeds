@@ -39,6 +39,9 @@ public class TurretCollection : MonoBehaviour
                 boughtTurret = _turretOne;
                 break;
             case TurretNum.TurretTwo:
+                if (_turretTwo.GetComponentInChildren<Turret>().Cost > PlayerStats.Instance.Gold)
+                    return null;
+
                 boughtTurret = _turretTwo;
                 break;
             default:
@@ -46,6 +49,23 @@ public class TurretCollection : MonoBehaviour
         }
 
         return boughtTurret;
+    }
+
+    public int GetTurretCost(int index)
+    {
+        int cost = 0;
+        switch (index)
+        {
+            case 0:
+                cost = _turretOne.GetComponentInChildren<Turret>().Cost;
+                break;
+
+            case 1:
+                cost = _turretTwo.GetComponentInChildren<Turret>().Cost;
+                break;
+        }
+
+        return cost;
     }
     
 }

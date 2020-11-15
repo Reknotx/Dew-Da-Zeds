@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour
     void DealDamageToPlayer()
     {
         PlayerStats.Instance.Lives -= Power;
+        GameSystem.Instance.ZombiesRemaining--;
     }
 
     IEnumerator Frozen()
