@@ -99,6 +99,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 6a62344aee51d5a46a2671c87b8f8db2, type: 2}
   dest: {fileID: 0}
   atEnd: 0
+  touchingBarrier: 0
 --- !u!50 &8700105118924010222
 Rigidbody2D:
   serializedVersion: 4
@@ -109,7 +110,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 8700105118924010219}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

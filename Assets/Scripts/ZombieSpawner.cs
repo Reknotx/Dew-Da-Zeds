@@ -82,7 +82,8 @@ public class ZombieSpawner : WayPoint
             }
             else if (_bigZeds != 0)
             {
-                Instantiate(BigZed, transform.position, Quaternion.identity);
+                GameObject zomb = Instantiate(BigZed, transform.position, Quaternion.identity) as GameObject;
+                zomb.GetComponent<Enemy>().dest = Link[0];
                 _bigZeds--;
             }
 
@@ -117,7 +118,6 @@ public class ZombieSpawner : WayPoint
             return;
         }
 
-        Debug.Log(currentWave);
 
         currWaveInfo = waves[currentWave];
 

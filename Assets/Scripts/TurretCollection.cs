@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretCollection : MonoBehaviour
 {
+    [SerializeField] private GameObject _barrier;
     [SerializeField] private GameObject _turretOne;
     [SerializeField] private GameObject _turretTwo;
     [SerializeField] private GameObject _turretThree;
@@ -22,6 +23,7 @@ public class TurretCollection : MonoBehaviour
 
     public enum TurretNum
     {
+        Barrier,
         TurretOne,
         TurretTwo
     }
@@ -32,6 +34,13 @@ public class TurretCollection : MonoBehaviour
 
         switch (turret)
         {
+            case TurretNum.Barrier:
+                if (_barrier.GetComponent<Barrier>().Cost > PlayerStats.Instance.Gold)
+                    return null;
+
+                boughtTurret = _barrier;
+                break;
+            
             case TurretNum.TurretOne:
                 if (_turretOne.GetComponentInChildren<Turret>().Cost > PlayerStats.Instance.Gold)
                     return null;
@@ -39,6 +48,9 @@ public class TurretCollection : MonoBehaviour
                 boughtTurret = _turretOne;
                 break;
             case TurretNum.TurretTwo:
+                if (_turretTwo.GetComponentInChildren<Turret>().Cost > PlayerStats.Instance.Gold)
+                    return null;
+
                 boughtTurret = _turretTwo;
                 break;
             default:
@@ -46,6 +58,27 @@ public class TurretCollection : MonoBehaviour
         }
 
         return boughtTurret;
+    }
+
+    public int GetTurretCost(int index)
+    {
+        int cost = 0;
+        switch (index)
+        {
+            case 0:
+                cost = _barrier.GetComponent<Barrier>().Cost;
+                break;
+
+            case 1:
+                cost = _turretOne.GetComponentInChildren<Turret>().Cost;
+                break;
+
+            case 2:
+                cost = _turretTwo.GetComponentInChildren<Turret>().Cost;
+                break;
+        }
+
+        return cost;
     }
     
 }

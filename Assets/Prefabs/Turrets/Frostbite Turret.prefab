@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1982329141403725375}
+  - component: {fileID: 3734974161611005631}
+  - component: {fileID: 5408858994772648456}
   m_Layer: 8
   m_Name: Frostbite Turret
   m_TagString: Untagged
@@ -34,6 +36,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3734974161611005631
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982329141403725369}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &5408858994772648456
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982329141403725369}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.010079205, y: -0.058458924}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.59280217, y: 0.48797917}
+  m_EdgeRadius: 0
 --- !u!1 &1982329141542872531
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +94,7 @@ GameObject:
   - component: {fileID: 1982329141542872535}
   - component: {fileID: 1982329141542872529}
   - component: {fileID: 1982329141542872530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frostbite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesInRange: []
   TurretSpriteHolder: {fileID: 8666077017001952219}
+  openUpgradeMenuCanvas: {fileID: 3814404135725092371}
   baseStats: {fileID: 11400000, guid: b45c6ddf7940f5748912b97a9eee9231, type: 2}
   Level1: {fileID: 11400000, guid: b5be9d5d7825b8d40a51d0a7ebe40d98, type: 2}
   Level2: {fileID: 11400000, guid: 63644a1d130b2f049b301da7a77bae9f, type: 2}
@@ -120,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2842253436811727478
 RectTransform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public WayPoint dest;
 
-    [HideInInspector] public bool atEnd = false;
+    [HideInInspector] public bool atEnd = false, touchingBarrier = false;
 
     private int _goldDropOnDeath;
 
@@ -70,10 +70,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //if (resetTime)
-        //{
-        //    timeStart = Time.time;
-        //}
+
+        if (touchingBarrier == true) return;
+
         if (GameSystem.Instance.State == GameState.Paused) return;
         if (!atEnd) Move();
     }
@@ -92,6 +91,7 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
+
         if (IsFrozen) return;
 
         transform.position = Vector2.MoveTowards(transform.position, dest.transform.position, Speed * Time.deltaTime);
@@ -110,9 +110,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            touchingBarrier = true;
+        }
+    }
+
     void DealDamageToPlayer()
     {
         PlayerStats.Instance.Lives -= Power;
+        GameSystem.Instance.ZombiesRemaining--;
     }
 
     IEnumerator Frozen()
