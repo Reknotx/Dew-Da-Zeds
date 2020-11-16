@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicZeds: 15
   bigZeds: 5
-  fastZeds: 3
+  fastZeds: 5
   babyZeds: 0
