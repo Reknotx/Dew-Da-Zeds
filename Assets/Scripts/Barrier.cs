@@ -6,6 +6,8 @@ public class Barrier : MonoBehaviour
 {
     public List<Enemy> enemiesStackedOnBarrier = new List<Enemy>();
 
+    public int Cost { get; } = 20;
+
     [Space]
     [Header("How many zombies need to be stacked on the barrier to break it.")]
     public int strength;
@@ -21,6 +23,25 @@ public class Barrier : MonoBehaviour
             else
             {
                 enemiesStackedOnBarrier.Add(zomb);
+            }
+
+            zomb.touchingBarrier = true;
+        }
+
+        if (enemiesStackedOnBarrier.Count >= strength)
+        {
+            ResetZombs();
+            Destroy(gameObject);
+        }
+    }
+
+    private void ResetZombs()
+    {
+        foreach (Enemy zomb in enemiesStackedOnBarrier)
+        {
+            if (zomb != null)
+            {
+                zomb.touchingBarrier = false;
             }
         }
     }

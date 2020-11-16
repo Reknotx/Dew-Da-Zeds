@@ -51,11 +51,18 @@ public class BuyTurret : MonoBehaviour
     {
         placing = false;
 
-        focusOfBuy.GetComponentInChildren<Turret>().enabled = true;
-        PlayerStats.Instance.Gold -= focusOfBuy.GetComponentInChildren<Turret>().Cost;
+        if (focusOfBuy.GetComponentInChildren<Turret>())
+        {
+            focusOfBuy.GetComponentInChildren<Turret>().enabled = true;
+            PlayerStats.Instance.Gold -= focusOfBuy.GetComponentInChildren<Turret>().Cost;
+        }
+        else if (focusOfBuy.GetComponent<Barrier>())
+        {
+            focusOfBuy.GetComponent<BoxCollider2D>().enabled = true;
+            PlayerStats.Instance.Gold -= focusOfBuy.GetComponent<Barrier>().Cost;
+        }
 
         focusOfBuy = null;
-
         placeButton.gameObject.SetActive(false);
         cancelButton.gameObject.SetActive(false);
     }
@@ -94,6 +101,7 @@ public class BuyTurret : MonoBehaviour
         }
 
         focusOfBuy = Instantiate(barrier, Vector3.zero, Quaternion.identity) as GameObject;
+        focusOfBuy.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void BuyTurrets(GameObject turret)
