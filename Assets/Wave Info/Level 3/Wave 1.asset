@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Wave 1
   m_EditorClassIdentifier: 
   basicZeds: 10
-  bigZeds: 5
-  fastZeds: 3
+  bigZeds: 3
+  fastZeds: 2
+  babyZeds: 0
