@@ -14,22 +14,16 @@ public class Barrier : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (Enemy zomb in enemiesStackedOnBarrier)
-        {
-            if (zomb == collision.gameObject.GetComponent<Enemy>())
-            {
-                return;
-            }
-            else
-            {
-                enemiesStackedOnBarrier.Add(zomb);
-            }
+        print("Detected collision with: " + collision.gameObject.name);
 
-            zomb.touchingBarrier = true;
-        }
+        if (enemiesStackedOnBarrier.Contains(collision.gameObject.GetComponent<Enemy>()))
+            return;
+        else
+            enemiesStackedOnBarrier.Add(collision.gameObject.GetComponent<Enemy>());
 
         if (enemiesStackedOnBarrier.Count >= strength)
         {
+            print("destroying barrier");
             ResetZombs();
             Destroy(gameObject);
         }

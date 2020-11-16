@@ -3986,6 +3986,7 @@ MonoBehaviour:
   cancelButton: {fileID: 3642065523479884416}
   placing: 0
   shopButtons:
+  - {fileID: 4409238268785472477}
   - {fileID: 3219292064324754121}
   - {fileID: 2324509708429758687}
   barrier: {fileID: 940138241704835957, guid: 22c7c2b3339eb764e8b308f9446d4c1f, type: 3}
@@ -4847,6 +4848,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret collection
       objectReference: {fileID: 0}
+    - target: {fileID: 7638612205864103975, guid: 6fda7440feb369c49a2820316a681180,
+        type: 3}
+      propertyPath: _barrier
+      value: 
+      objectReference: {fileID: 940138241704835957, guid: 22c7c2b3339eb764e8b308f9446d4c1f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fda7440feb369c49a2820316a681180, type: 3}
 --- !u!4 &6506233855434883772 stripped

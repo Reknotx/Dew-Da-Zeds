@@ -110,6 +110,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            touchingBarrier = true;
+        }
+    }
+
     void DealDamageToPlayer()
     {
         PlayerStats.Instance.Lives -= Power;

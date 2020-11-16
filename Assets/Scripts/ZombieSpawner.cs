@@ -118,7 +118,6 @@ public class ZombieSpawner : WayPoint
             return;
         }
 
-        Debug.Log(currentWave);
 
         currWaveInfo = waves[currentWave];
 
