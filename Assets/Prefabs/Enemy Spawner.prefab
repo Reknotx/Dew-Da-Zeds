@@ -50,8 +50,9 @@ MonoBehaviour:
   - {fileID: 8700105118924010218, guid: 4b7d6adc44ce5984fa9c68292c61776a, type: 3}
   BasicZed: {fileID: 8700105118924010219, guid: 4b7d6adc44ce5984fa9c68292c61776a,
     type: 3}
-  FastZed: {fileID: 0}
-  BigZed: {fileID: 0}
+  FastZed: {fileID: 7680212541847835310, guid: e16c1a2af76098b4ea0fa4a81848f0b0, type: 3}
+  BigZed: {fileID: 1583159819577703622, guid: 2e76772b1d4c54e418f48722dd32efc2, type: 3}
+  BabyZed: {fileID: 0}
   _waveOne: {fileID: 11400000, guid: dfcc1278b48db6b4fa1ffbc0cadcae06, type: 2}
   _waveTwo: {fileID: 11400000, guid: edab07356319aa8419a03519bef9ddae, type: 2}
   _waveThree: {fileID: 11400000, guid: 165a8930243f31d49874d61daaf1e5a2, type: 2}

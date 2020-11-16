@@ -11,4 +11,7 @@ public class WaveInfo : ScriptableObject
 
     [Range(0, 100)]
     public int fastZeds;
+
+    [Range(0, 100)]
+    public int babyZeds;
 }

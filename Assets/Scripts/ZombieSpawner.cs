@@ -16,8 +16,9 @@ public class ZombieSpawner : WayPoint
     public List<Enemy> spawnables = new List<Enemy>();
 
     public GameObject BasicZed;
-    [HideInInspector] public GameObject FastZed;
-    [HideInInspector] public GameObject BigZed;
+    public GameObject FastZed;
+    public GameObject BigZed;
+    public GameObject BabyZed;
 
     /// <summary> How many basic zeds will spawn this wave. </summary>
     private int _basicZeds;
@@ -27,6 +28,8 @@ public class ZombieSpawner : WayPoint
 
     /// <summary> How many BigZeds will spawn this wave. </summary>
     private int _bigZeds;
+
+    private int _babyZeds;
 
     private int currentWave = 0;
 
@@ -80,6 +83,18 @@ public class ZombieSpawner : WayPoint
                 zomb.GetComponent<Enemy>().dest = Link[0];
                 _basicZeds--;
             }
+            else if (_fastZeds != 0)
+            {
+                GameObject zomb = Instantiate(FastZed, transform.position, Quaternion.identity) as GameObject;
+                zomb.GetComponent<Enemy>().dest = Link[0];
+                _fastZeds--;
+            }
+            else if (_babyZeds != 0)
+            {
+                GameObject zomb = Instantiate(BabyZed, transform.position, Quaternion.identity) as GameObject;
+                zomb.GetComponent<Enemy>().dest = Link[0];
+                _babyZeds--;
+            }
             else if (_bigZeds != 0)
             {
                 GameObject zomb = Instantiate(BigZed, transform.position, Quaternion.identity) as GameObject;
@@ -87,7 +102,11 @@ public class ZombieSpawner : WayPoint
                 _bigZeds--;
             }
 
-            if (_basicZeds == 0)
+
+            if (_basicZeds == 0
+                && _bigZeds == 0
+                && _fastZeds == 0
+                && _babyZeds == 0)
             {
                 break;
             }
@@ -126,6 +145,8 @@ public class ZombieSpawner : WayPoint
         _bigZeds = currWaveInfo.bigZeds;
 
         _fastZeds = currWaveInfo.fastZeds;
+
+        _babyZeds = currWaveInfo.babyZeds;
 
         int totalZeds = _basicZeds + _bigZeds + _fastZeds;
 
