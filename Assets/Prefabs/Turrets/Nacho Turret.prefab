@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 544836477220494870}
   - component: {fileID: 544836477220494864}
   - component: {fileID: 544836477220494867}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Firing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesInRange: []
   TurretSpriteHolder: {fileID: 7226332484145936410}
+  openUpgradeMenuCanvas: {fileID: 2946053859276666322}
   baseStats: {fileID: 11400000, guid: 32280fc7952db934398af9cf8ad5cb7c, type: 2}
   Level1: {fileID: 11400000, guid: 72c6099c53fc5e44eb03ae9e068933e7, type: 2}
   Level2: {fileID: 11400000, guid: fba54b6c75b0743468bef4f47b3bdb33, type: 2}
@@ -169,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4286501379767118263
 RectTransform:
   m_ObjectHideFlags: 0

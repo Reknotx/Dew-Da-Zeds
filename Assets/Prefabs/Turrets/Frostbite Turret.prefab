@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1982329141542872535}
   - component: {fileID: 1982329141542872529}
   - component: {fileID: 1982329141542872530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frostbite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesInRange: []
   TurretSpriteHolder: {fileID: 8666077017001952219}
+  openUpgradeMenuCanvas: {fileID: 3814404135725092371}
   baseStats: {fileID: 11400000, guid: b45c6ddf7940f5748912b97a9eee9231, type: 2}
   Level1: {fileID: 11400000, guid: b5be9d5d7825b8d40a51d0a7ebe40d98, type: 2}
   Level2: {fileID: 11400000, guid: 63644a1d130b2f049b301da7a77bae9f, type: 2}
@@ -169,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2842253436811727478
 RectTransform:
   m_ObjectHideFlags: 0

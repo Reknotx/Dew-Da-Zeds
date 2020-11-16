@@ -23,6 +23,8 @@ public class Turret : MonoBehaviour
 
     public GameObject TurretSpriteHolder;
 
+    public GameObject openUpgradeMenuCanvas;
+
     private int _totalCost;
 
     [Header("Turret stats and upgrades.")]

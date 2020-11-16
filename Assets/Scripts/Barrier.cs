@@ -12,7 +12,7 @@ public class Barrier : MonoBehaviour
     [Header("How many zombies need to be stacked on the barrier to break it.")]
     public int strength;
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (Enemy zomb in enemiesStackedOnBarrier)
         {

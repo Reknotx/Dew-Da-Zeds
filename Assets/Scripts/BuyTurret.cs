@@ -12,22 +12,42 @@ public class BuyTurret : MonoBehaviour
 
     [HideInInspector] public bool placing = false;
 
-    private bool canPlace = false;
+    private bool _canPlace = true;
+    [HideInInspector] public bool CanPlace
+    {
+        get
+        {
+            return _canPlace;
+        }
+
+        set
+        {
+            if (value == true)
+            {
+                placeButton.interactable = true;
+            }
+            else
+            {
+                placeButton.interactable = false;
+            }
+            _canPlace = value;
+        }
+    }
 
     public List<Button> shopButtons = new List<Button>();
 
     public GameObject barrier;
 
-    void NewBuy()
-    {
-        UpdateButtons();
+    public static BuyTurret Instance;
 
-        if (placing && Input.touchCount > 0 && focusOfBuy != null)
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
         {
-            Touch fingerPos = Input.GetTouch(0);
-            Vector3 pos = Camera.main.ScreenToWorldPoint(fingerPos.position);
-            focusOfBuy.transform.position = new Vector3(pos.x, pos.y, 0f);
+            Destroy(Instance.gameObject);
         }
+
+        Instance = this;
     }
 
     private void Update()
@@ -45,6 +65,15 @@ public class BuyTurret : MonoBehaviour
                 focusOfBuy.transform.position = new Vector3(pos.x, pos.y, 0f);
             }
         }
+        else if (Input.GetMouseButton(0) && focusOfBuy != null)
+        {
+            if (!IsPointerOverUIObject())
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+                focusOfBuy.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+            }
+        }
     }
 
     public void PlaceTurret()
@@ -60,11 +89,14 @@ public class BuyTurret : MonoBehaviour
         {
             focusOfBuy.GetComponent<BoxCollider2D>().enabled = true;
             PlayerStats.Instance.Gold -= focusOfBuy.GetComponent<Barrier>().Cost;
+            focusOfBuy.GetComponent<Barrier>().enabled = true;
         }
 
-        focusOfBuy = null;
         placeButton.gameObject.SetActive(false);
         cancelButton.gameObject.SetActive(false);
+        focusOfBuy.GetComponentInChildren<Turret>().openUpgradeMenuCanvas.SetActive(true);
+
+        focusOfBuy = null;
     }
 
     public void CancelBuy()
@@ -102,6 +134,13 @@ public class BuyTurret : MonoBehaviour
 
         focusOfBuy = Instantiate(barrier, Vector3.zero, Quaternion.identity) as GameObject;
         focusOfBuy.GetComponent<BoxCollider2D>().enabled = false;
+
+        placing = true;
+
+        placeButton.gameObject.SetActive(true);
+        placeButton.interactable = true;
+        cancelButton.gameObject.SetActive(true);
+        cancelButton.interactable = true;
     }
 
     private void BuyTurrets(GameObject turret)
@@ -112,12 +151,15 @@ public class BuyTurret : MonoBehaviour
         }
 
         focusOfBuy = Instantiate(turret, Vector3.zero, Quaternion.identity) as GameObject;
+        focusOfBuy.GetComponentInChildren<Turret>().openUpgradeMenuCanvas.SetActive(false);
         focusOfBuy.GetComponentInChildren<Turret>().enabled = false;
 
         placing = true;
 
         placeButton.gameObject.SetActive(true);
+        placeButton.interactable = true;
         cancelButton.gameObject.SetActive(true);
+        cancelButton.interactable = true;
     }
 
     public void BuyTurretOne()
@@ -138,9 +180,29 @@ public class BuyTurret : MonoBehaviour
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+        if (Input.touchCount > 0)
+        {
+            eventDataCurrentPosition.position = new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        }
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;
+
+        List<RaycastResult> filteredResults = new List<RaycastResult>();
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.layer == 5)
+            {
+                filteredResults.Add(result);
+                //print("Name: " + result.gameObject.name + "\nLayer: " + result.gameObject.layer);
+            }
+        }
+
+        return filteredResults.Count > 0;
+        //return results.Count > 0;
     }
 }
