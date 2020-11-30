@@ -16,6 +16,8 @@ public class Barrier : MonoBehaviour
     {
         print("Detected collision with: " + collision.gameObject.name);
 
+        if (collision.gameObject.layer != 11) return;
+
         if (enemiesStackedOnBarrier.Contains(collision.gameObject.GetComponent<Enemy>()))
             return;
         else
@@ -23,6 +25,11 @@ public class Barrier : MonoBehaviour
 
         if (enemiesStackedOnBarrier.Count >= strength)
         {
+            foreach (Enemy zomb in enemiesStackedOnBarrier)
+            {
+                Debug.Log(zomb.name);
+            }
+
             print("destroying barrier");
             ResetZombs();
             Destroy(gameObject);
