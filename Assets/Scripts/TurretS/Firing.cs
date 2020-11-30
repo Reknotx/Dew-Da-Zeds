@@ -11,6 +11,8 @@ public class Firing : Turret
     /// </summary>
     //private float range = 2f;
 
+    private Sprite muzzleFlare;
+
     protected override void Start()
     {
         base.Start();
