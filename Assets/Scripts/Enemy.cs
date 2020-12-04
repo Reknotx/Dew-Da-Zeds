@@ -47,6 +47,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private bool _isBurning = false;
+
+    public bool IsBurning
+    {
+        get
+        {
+            return _isBurning;
+        }
+
+        set
+        {
+            if (value == true && _isBurning == false)
+            {
+                _isBurning = true;
+                StartCoroutine(Burning());
+            }
+        }
+    }
+
     //public Transform destination;
 
     //public bool resetTime = true;
@@ -130,5 +149,18 @@ public class Enemy : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         IsFrozen = false;
+    }
+
+    IEnumerator Burning()
+    {
+        
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            yield return new WaitForFixedUpdate();
+
+            TakeDamage(1);
+        }
+
     }
 }

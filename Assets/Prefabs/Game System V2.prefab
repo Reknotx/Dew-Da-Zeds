@@ -4442,7 +4442,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7269022112873412095}
-        m_MethodName: CancelInvoke
+        m_MethodName: CancelBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -136,7 +136,7 @@ public class BuyTurret : MonoBehaviour
                                  Vector3.zero,
                                  Quaternion.identity);
 
-        focusOfBuy.GetComponent<BoxCollider2D>().enabled = false;
+        focusOfBuy.GetComponent<Barrier>().enabled = false;
 
         placing = true;
 
