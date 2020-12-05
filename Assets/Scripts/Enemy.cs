@@ -153,7 +153,13 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Burning()
     {
-        
+        if (GetComponent<SpriteRenderer>())
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+
+
+
         while(true)
         {
             yield return new WaitForSeconds(1f);
