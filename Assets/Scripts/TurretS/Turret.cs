@@ -50,12 +50,12 @@ public class Turret : MonoBehaviour
     /// </summary>
     private TurretStats currentStats;
 
-    private UpgradeTree upgradeTree;
+    protected UpgradeTree upgradeTree;
 
     protected Timer timer;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         fireRate = baseStats.fireRate;
         damage = baseStats.damage;
@@ -158,7 +158,7 @@ public class Turret : MonoBehaviour
 
     #region Upgrades and Selling
     /// <summary> Upgrades the turret to the next level. </summary>
-    public void Upgrade()
+    public virtual void Upgrade()
     {
         TurretStats temp = upgradeTree.UpgradeTurret();
 
@@ -194,7 +194,7 @@ public class Turret : MonoBehaviour
     /// of upgrades. Provides functions that assist in upgrading and 
     /// downgrading turrets.
     /// </summary>
-    private class UpgradeTree
+    protected class UpgradeTree
     {
         List<Node> upgradeList;
         int currLevel = 0;
@@ -291,6 +291,11 @@ public class Turret : MonoBehaviour
             }
 
             return result;
+        }
+
+        public TurretStats GetCurrentStats()
+        {
+            return upgradeList[currLevel].GetStats();
         }
 
         /// <summary>
