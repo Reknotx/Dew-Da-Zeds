@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1218916321487485890}
   - component: {fileID: 8051792101125918964}
   - component: {fileID: 4318484801575275103}
+  - component: {fileID: 3579309235332547121}
   m_Layer: 11
   m_Name: Fast Zed
   m_TagString: Untagged
@@ -147,3 +148,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3579309235332547121
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680212541847835310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2788d5f02ac58d8418ecee96f5bbc8ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

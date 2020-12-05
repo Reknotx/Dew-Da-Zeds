@@ -61,6 +61,15 @@ public class Enemy : MonoBehaviour
             if (value == true && _isBurning == false)
             {
                 _isBurning = true;
+                if (GetComponent<Animator>())
+                {
+                    GetComponent<Animator>().SetTrigger("OnFire");
+                }
+                else
+                {
+                    GetComponentInChildren<Animator>().SetTrigger("OnFire");
+                }
+                
                 StartCoroutine(Burning());
             }
         }
@@ -156,10 +165,6 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Burning()
     {
-        if (GetComponent<SpriteRenderer>())
-        {
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
 
         while(true)
         {
