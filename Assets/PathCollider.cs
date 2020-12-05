@@ -12,6 +12,10 @@ public class PathCollider : MonoBehaviour
         {
             BuyTurret.Instance.CanPlace = false;
         }
+        else if (collision.gameObject.layer == 10)
+        {
+            BuyTurret.Instance.CanPlace = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -19,6 +23,10 @@ public class PathCollider : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             BuyTurret.Instance.CanPlace = true;
+        }
+        else if (collision.gameObject.layer == 10)
+        {
+            BuyTurret.Instance.CanPlace = false;
         }
     }
 }
