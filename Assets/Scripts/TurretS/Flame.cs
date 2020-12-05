@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Flame : Turret
 {
+    private int tickRate;
+    private int tickDamage;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        tickRate = ((FlaminStats)baseStats).TickRate;
+        tickDamage = ((FlaminStats)baseStats).TickDamage;
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -33,8 +44,9 @@ public class Flame : Turret
 
         if (enemiesInRange[0] != null)
         {
-            enemiesInRange[0].TakeDamage(damage);
             enemiesInRange[0].IsBurning = true;
+            enemiesInRange[0].FlameTickDamage = tickDamage;
+            enemiesInRange[0].FlameTickRate = tickRate;
         }
 
         timer.Reset();
@@ -48,5 +60,17 @@ public class Flame : Turret
 
         DamageEnemy();
 
+    }
+
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+
+        FlaminStats flaminStats = (FlaminStats) upgradeTree.GetCurrentStats();
+
+        tickRate = flaminStats.TickRate;
+        tickDamage = flaminStats.TickDamage;
+        
     }
 }
