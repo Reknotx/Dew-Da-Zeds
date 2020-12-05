@@ -2,17 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firing : Turret
+public class Flame : Turret
 {
-    //public Enemy target;
-
-    /// <summary>
-    /// The timer that executes the firing function.
-    /// </summary>
-    //private float range = 2f;
-
-    private Sprite muzzleFlare;
-
     protected override void Start()
     {
         base.Start();
@@ -36,12 +27,15 @@ public class Firing : Turret
         }
     }
 
-    /// <summary> Damages the currently targetted enemy. </summary>
     public void DamageEnemy()
     {
         if (enemiesInRange.Count <= 0) return;
 
-        if (enemiesInRange[0] != null) enemiesInRange[0].TakeDamage(damage); 
+        if (enemiesInRange[0] != null)
+        {
+            enemiesInRange[0].TakeDamage(damage);
+            enemiesInRange[0].IsBurning = true;
+        }
 
         timer.Reset();
     }

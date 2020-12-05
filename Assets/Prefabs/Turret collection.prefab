@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7c968b7258b564aaf6d1764640e5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _barrier: {fileID: 940138241704835957, guid: 22c7c2b3339eb764e8b308f9446d4c1f, type: 3}
   _turretOne: {fileID: 544836477359511032, guid: ffb9fc5148b041e4c88bf3f05027d1e3,
     type: 3}
   _turretTwo: {fileID: 1982329141403725369, guid: 5dcb93f1feace0b46bdc2355da661c39,
