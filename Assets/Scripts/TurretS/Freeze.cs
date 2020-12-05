@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Freeze : Turret
 {
+    private int freezeDuration;
+    private int numberOfTargets;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        FrostbiteStats frostStats = (FrostbiteStats)baseStats;
+        freezeDuration = frostStats.freeezeDuration;
+        numberOfTargets = frostStats.numZombiesToFreeze;
+    }
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -40,6 +53,16 @@ public class Freeze : Turret
 
         Freezey();
 
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+
+        FrostbiteStats frostStats = (FrostbiteStats) upgradeTree.GetCurrentStats();
+
+        freezeDuration = frostStats.freeezeDuration;
+        numberOfTargets = frostStats.numZombiesToFreeze;
     }
 
 }

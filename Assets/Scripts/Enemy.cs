@@ -66,6 +66,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public int FlameTickRate { get; set; }
+    public int FlameTickDamage { get; set; }
+
     //public Transform destination;
 
     //public bool resetTime = true;
@@ -158,14 +161,12 @@ public class Enemy : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.red;
         }
 
-
-
         while(true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(FlameTickRate);
             yield return new WaitForFixedUpdate();
 
-            TakeDamage(1);
+            TakeDamage(FlameTickDamage);
         }
 
     }
