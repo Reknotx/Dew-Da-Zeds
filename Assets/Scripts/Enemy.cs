@@ -115,6 +115,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             PlayerStats.Instance.Gold += _goldDropOnDeath;
+            PlayerStats.Instance.Score += _scoreOnDeath;
             GameSystem.Instance.ZombiesRemaining--;
             Destroy(this.gameObject);
         }
