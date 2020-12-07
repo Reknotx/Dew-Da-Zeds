@@ -148,7 +148,7 @@ public class ZombieSpawner : WayPoint
 
         _babyZeds = currWaveInfo.babyZeds;
 
-        int totalZeds = _basicZeds + _bigZeds + _fastZeds;
+        int totalZeds = _basicZeds + _bigZeds + _fastZeds + _babyZeds;
 
         GameSystem.Instance.ZombiesRemaining = totalZeds;
 

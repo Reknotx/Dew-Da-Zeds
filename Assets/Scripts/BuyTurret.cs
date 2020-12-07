@@ -122,6 +122,10 @@ public class BuyTurret : MonoBehaviour
             {
                 shopButton.interactable = false;
             }
+            else
+            {
+                shopButton.interactable = true;
+            }
         }
     }
 
