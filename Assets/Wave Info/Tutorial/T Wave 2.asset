@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668bc1a895a0af4c92d72f4f096bac3, type: 3}
   m_Name: T Wave 2
   m_EditorClassIdentifier: 
-  basicZeds: 5
+  basicZeds: 3
   bigZeds: 0
   fastZeds: 0
+  babyZeds: 2

@@ -61,22 +61,10 @@ public class Enemy : MonoBehaviour
             if (value == true && _isBurning == false)
             {
                 _isBurning = true;
-                if (GetComponent<Animator>())
-                {
-                    GetComponent<Animator>().SetTrigger("OnFire");
-                }
-                else
-                {
-                    GetComponentInChildren<Animator>().SetTrigger("OnFire");
-                }
-                
                 StartCoroutine(Burning());
             }
         }
     }
-
-    public int FlameTickRate { get; set; }
-    public int FlameTickDamage { get; set; }
 
     //public Transform destination;
 
@@ -115,7 +103,6 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             PlayerStats.Instance.Gold += _goldDropOnDeath;
-            PlayerStats.Instance.Score += _scoreOnDeath;
             GameSystem.Instance.ZombiesRemaining--;
             Destroy(this.gameObject);
         }
@@ -166,13 +153,19 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Burning()
     {
+        if (GetComponent<SpriteRenderer>())
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+
+
 
         while(true)
         {
-            yield return new WaitForSeconds(FlameTickRate);
+            yield return new WaitForSeconds(1f);
             yield return new WaitForFixedUpdate();
 
-            TakeDamage(FlameTickDamage);
+            TakeDamage(1);
         }
 
     }

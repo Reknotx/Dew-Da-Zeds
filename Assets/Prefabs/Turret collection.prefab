@@ -48,5 +48,4 @@ MonoBehaviour:
     type: 3}
   _turretTwo: {fileID: 1982329141403725369, guid: 5dcb93f1feace0b46bdc2355da661c39,
     type: 3}
-  _turretThree: {fileID: 6856458516168020834, guid: 5d622e5e6bd038841bfc41695d160dc4,
-    type: 3}
+  _turretThree: {fileID: 0}
