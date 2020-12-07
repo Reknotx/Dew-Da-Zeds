@@ -10605,11 +10605,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game System V2
       objectReference: {fileID: 0}
-    - target: {fileID: 3983267221663173174, guid: 17ec1c66334cff943bcb79f1a91a975b,
-        type: 3}
-      propertyPath: m_Name
-      value: Buy turret 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4461571470895033449, guid: 17ec1c66334cff943bcb79f1a91a975b,
         type: 3}
       propertyPath: m_IsActive
@@ -10625,12 +10620,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6506233855434883771, guid: 17ec1c66334cff943bcb79f1a91a975b,
-        type: 3}
-      propertyPath: _turretTwo
-      value: 
-      objectReference: {fileID: 1982329141403725369, guid: 5dcb93f1feace0b46bdc2355da661c39,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ec1c66334cff943bcb79f1a91a975b, type: 3}
 --- !u!4 &3900156479529472940 stripped
