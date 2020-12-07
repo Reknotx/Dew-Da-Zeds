@@ -25,7 +25,8 @@ public class TurretCollection : MonoBehaviour
     {
         Barrier,
         TurretOne,
-        TurretTwo
+        TurretTwo,
+        TurretThree
     }
 
     public GameObject GetTurretToBuy(TurretNum turret)
@@ -53,6 +54,13 @@ public class TurretCollection : MonoBehaviour
 
                 boughtTurret = _turretTwo;
                 break;
+
+            case TurretNum.TurretThree:
+                if (_turretThree.GetComponentInChildren<Turret>().Cost > PlayerStats.Instance.Gold)
+                    return null;
+
+                boughtTurret = _turretThree;
+                break;
             default:
                 break;
         }
@@ -75,6 +83,10 @@ public class TurretCollection : MonoBehaviour
 
             case 2:
                 cost = _turretTwo.GetComponentInChildren<Turret>().Cost;
+                break;
+
+            case 3:
+                cost = _turretThree.GetComponentInChildren<Turret>().Cost;
                 break;
         }
 

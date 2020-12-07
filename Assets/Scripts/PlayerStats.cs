@@ -41,6 +41,8 @@ public class PlayerStats : MonoBehaviour
         set
         {
             _score = value;
+
+            GameSystem.Instance.UpdateScore(_score);
         }
     }
 

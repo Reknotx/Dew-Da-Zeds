@@ -184,6 +184,13 @@ public class BuyTurret : MonoBehaviour
     }
 
 
+    public void BuyTurretThree()
+    {
+        GameObject turret = TurretCollection.Instance.GetTurretToBuy(TurretCollection.TurretNum.TurretThree);
+
+        if (turret != null) BuyTurrets(turret);
+    }
+
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
