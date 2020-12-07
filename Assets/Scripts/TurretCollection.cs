@@ -84,6 +84,10 @@ public class TurretCollection : MonoBehaviour
             case 2:
                 cost = _turretTwo.GetComponentInChildren<Turret>().Cost;
                 break;
+
+            case 3:
+                cost = _turretThree.GetComponentInChildren<Turret>().Cost;
+                break;
         }
 
         return cost;
