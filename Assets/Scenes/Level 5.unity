@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game System V2
       objectReference: {fileID: 0}
+    - target: {fileID: 4000946656586921081, guid: 17ec1c66334cff943bcb79f1a91a975b,
+        type: 3}
+      propertyPath: _gold
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ec1c66334cff943bcb79f1a91a975b, type: 3}
 --- !u!1 &182902750
